@@ -1,15 +1,54 @@
-import {styled} from '@mui/styles';
+import {styled} from '@mui/material';
 
-export const Root = styled('div')({
+export const Root = styled('div')(({theme}) => ({
     display: 'flex',
     justifyContent: 'space-between',
+    [theme.breakpoints.down('lg')]: {
+        display: 'block',
+    },
+    '& div.left-line': {
+        position: 'fixed',
+        zIndex: '10',
+        width: '8px',
+        height: '100%',
+        top: 0,
+        background: '#F8CECA'
+    },
     '& div.left-side': {
-        '& div.left-line': {
-            position: 'fixed',
-            width: '8px',
-            height: '100%',
-            top: 0,
-            background: '#F8CECA'
+        [theme.breakpoints.down('xl')]: {
+          marginRight: '70px'
+        },
+        [theme.breakpoints.down('lg')]: {
+            width: '100%',
+            margin: '0 auto',
+            maxWidth: '500px',
+            '& .avs-text': {
+                marginTop: '66px',
+                '& h2': {
+                    fontSize: '50px',
+                    fontWeight: '800',
+                    lineHeight: '50px',
+                }
+            }
+        },
+        [theme.breakpoints.down('md')]: {
+            '& .avs-text': {
+                marginTop: '66px',
+                [theme.breakpoints.down('sm')]: {
+                    marginTop: '0',
+                    margin: '66px 30px 0'
+                },
+                '& h2': {
+                    fontSize: '40px',
+                    fontWeight: '800',
+                    lineHeight: '50px',
+                    [theme.breakpoints.down('sm')]: {
+                        fontSize: '25px',
+                        fontWeight: '800',
+                        lineHeight: '33px',
+                    },
+                }
+            }
         },
         '& div.avs-logo': {
             margin: '46px 0 0 38px'
@@ -17,6 +56,12 @@ export const Root = styled('div')({
         '& div.login-card': {
             margin: '130px 0 110px 26px',
             maxWidth: '500px',
+            [theme.breakpoints.down('lg')]: {
+                margin: '66px 0 10px',
+            },
+            [theme.breakpoints.down('sm')]: {
+                margin: '66px 30px 10px',
+            },
             '& h3': {
                 fontWeight: '700',
                 fontSize: '37px',
@@ -94,18 +139,38 @@ export const Root = styled('div')({
     '& div.right-side': {
         position: 'relative',
         width: '50%',
-        height: 'auto',
         background: `#FEE9E7 url('/dots_26.png')`,
-        '& div.avs-text-img': {
-          marginTop: '125px',
-          textAlign: 'center'
+        [theme.breakpoints.down('lg')]: {
+            width: '100%',
+        },
+        [theme.breakpoints.down('md')]: {
+            background: `#fff url('/dots_26.png')`,
+        },
+        '& div.avs-text': {
+            maxWidth: '550px',
+            width: '100%',
+            margin: '125px auto 0',
+            '& h2': {
+                fontSize: '54px',
+                fontWeight: '800',
+                lineHeight: '63px',
+                [theme.breakpoints.down('xl')]: {
+                    textAlign: 'center',
+                    fontSize: '40px',
+                    fontWeight: '800',
+                    lineHeight: '50px'
+                },
+            }
         },
         '& div.magic-img': {
-           '& img': {
-               position: 'absolute',
-               maxWidth: '100%',
-               bottom: 0
-           }
+            '& img': {
+                position: 'absolute',
+                maxWidth: '100%',
+                bottom: 0,
+                [theme.breakpoints.down('lg')]: {
+                    position: 'relative'
+                }
+            }
         }
     }
-});
+}));

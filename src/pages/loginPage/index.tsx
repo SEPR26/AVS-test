@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Root} from "./style";
 import imgLogo from '/logo.png'
 import magicImg from '/img-magic.png'
-import avsText from '/avs-text.png'
-import {Box, Button, Checkbox, TextField, Typography} from "@mui/material";
+import {Box, Button, Checkbox, Hidden, TextField, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 
 export const LoginPage = () => {
@@ -11,7 +10,7 @@ export const LoginPage = () => {
     const navigate = useNavigate();
 
     const [loginData, setLoginData] = useState({username: '', userEmail: ''});
-    const [notValidate, setNotValidate] = useState(false)
+    const [notValidate, setNotValidate] = useState(false);
 
     const handleLogin = ({target: {name, value}}: any) => {
         setLoginData({
@@ -35,11 +34,16 @@ export const LoginPage = () => {
 
     return (
         <Root>
+            <div className='left-line'/>
             <div className='left-side'>
-                <div className='left-line'/>
                 <div className='avs-logo'>
                     <img src={imgLogo} alt="avs"/>
                 </div>
+                <Hidden lgUp>
+                    <div className='avs-text'>
+                        <Typography variant='h2'>AVS Video ReMaker Giveaway</Typography>
+                    </div>
+                </Hidden>
                 <div className='login-card'>
                     <Typography variant="h3">
                         Get started for free!
@@ -110,9 +114,11 @@ export const LoginPage = () => {
                 </div>
             </div>
             <div className='right-side'>
-                <div className='avs-text-img'>
-                    <img src={avsText} alt="mag"/>
-                </div>
+               <Hidden lgDown>
+                   <div className='avs-text'>
+                       <Typography variant='h2'>AVS Video ReMaker Giveaway</Typography>
+                   </div>
+               </Hidden>
                 <div className='magic-img'>
                     <img src={magicImg} alt="mag"/>
                 </div>
