@@ -129,6 +129,7 @@ export const Root = styled('div')(({theme}) => ({
             '& .card-btn': {
                 width: '100%',
                 background: '#FE9235',
+                boxShadow: 'none',
                 padding: '13px 16px',
                 '&:hover': {
                     background: '#FFAB62'
